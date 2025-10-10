@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Únete a la Familia Angello{% endblock %}
+
+{% block content %}
+<div class="flex-grow bg-main bg-formulario min-h-screen flex flex-col">
+    {% include 'navbar.html' %}
+
+    <div class="flex-grow flex flex-col items-center justify-center p-8">
+        <div class="bg-black bg-opacity-60 p-8 rounded-lg text-center max-w-lg w-full">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">RECIBE OFERTAS EXCLUSIVAS Y OFERTAS</h2>
+            <p class="text-lg text-gray-300 mb-8">Sé el primero en conocer nuestros eventos especiales y promociones.</p>
+
+            <form action="{{ url_for('formulario') }}" method="POST" class="space-y-4">
+                <input type="text" name="nombre" placeholder="NOMBRES" class="w-full p-3 rounded-md bg-gray-800 border border-orange-500 text-white placeholder-gray-400 focus:ring-2 focus:ring-orange-400 focus:border-transparent" required>
+                <input type="text" name="apellidos" placeholder="APELLIDOS" class="w-full p-3 rounded-md bg-gray-800 border border-orange-500 text-white placeholder-gray-400 focus:ring-2 focus:ring-orange-400 focus:border-transparent" required>
+                <input type="text" name="dni" placeholder="DNI" class="w-full p-3 rounded-md bg-gray-800 border border-orange-500 text-white placeholder-gray-400 focus:ring-2 focus:ring-orange-400 focus:border-transparent" required>
+                <input type="email" name="correo" placeholder="CORREO" class="w-full p-3 rounded-md bg-gray-800 border border-orange-500 text-white placeholder-gray-400 focus:ring-2 focus:ring-orange-400 focus:border-transparent" required>
+                <input type="tel" name="telefono" placeholder="TELEFONO" class="w-full p-3 rounded-md bg-gray-800 border border-orange-500 text-white placeholder-gray-400 focus:ring-2 focus:ring-orange-400 focus:border-transparent" required>
+
+                <button type="submit" class="w-full py-3 mt-6 bg-red-600 hover:bg-red-500 text-white font-bold rounded-lg text-xl transition-colors">ÚNETE AHORA</button>
+            </form>
+            <p class="text-sm text-gray-500 mt-4">Tu información es privada y no compartida</p>
+        </div>
+    </div>
+
+    {% include 'footer.html' %}
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+/* static/css/style.css */
+
+/* * REGLAS PARA FONDOS: EL HTML SÓLO USA LAS CLASES * */
+.bg-main {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+}
+
+/* 1. Fondo para Inicio */
+.bg-inicio {
+    background-image: url('../img/fondo_inicio.jpg');
+}
+
+/* 2. Fondo para Cartas */
+.bg-cartas {
+    background-image: url('../img/fondo_cartas.jpg');
+}
+
+/* 3. Fondo para Historia */
+.bg-historia {
+    background-image: url('../img/fondo_historia.jpg');
+}
+
+/* 4. Fondo para Formulario (Delivery, Reservaciones, Suscríbete) */
+.bg-formulario {
+    background-image: url('../img/fondo_formulario.jpg');
+}
+
+/* 5. Fondo para Confirmación */
+.bg-confirmacion {
+    background-image: url('../img/fondo_confirmacion.jpg');
+}
+
+
+/* Estilos Globales Adicionales */
+body {
+    font-family: 'Georgia', serif; 
+    color: #f0f0f0;
+    background-color: #1a1a1a;
+}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Nuestra Historia - Restaurante Angello{% endblock %}
+
+{% block content %}
+<div class="flex-grow bg-main bg-historia min-h-screen flex flex-col">
+    {% include 'navbar.html' %}
+
+    <div class="flex-grow flex items-center justify-center p-8">
+        <div class="bg-black bg-opacity-60 p-8 rounded-lg max-w-4xl flex flex-col md:flex-row gap-8 items-center">
+            <div class="md:w-1/2">
+                <h2 class="text-4xl font-bold text-orange-500 mb-6">RESTAURANTE ANGELLO</h2>
+                <p class="text-xl leading-relaxed text-white">
+                    Tenemos más de <span class="font-bold text-orange-300">15 años de trayectoria</span> ofreciendo la mejor comida combinando dos culturas, brindando pizzas artesanales, pastas frescas y el platillo más popular, el pollo a la leña.
+                </p>
+            </div>
+            <div class="md:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <img src="{{ url_for('static', filename='img/horno.jpg') }}" alt="Horno de pizza" class="rounded-lg shadow-xl border-2 border-orange-500">
+                <img src="{{ url_for('static', filename='img/pollo_asado.jpg') }}" alt="Pollo asado" class="rounded-lg shadow-xl border-2 border-orange-500">
+            </div>
+        </div>
+    </div>
+
+    {% include 'footer.html' %}
+</div>
+{% endblock %}

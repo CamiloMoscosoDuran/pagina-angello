@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante Angello</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <style>
+        /* Aquí puedes definir estilos globales o para tus imágenes de fondo */
+        body {
+            font-family: 'Georgia', serif; /* O la fuente que prefieras */
+            color: #f0f0f0; /* Color de texto general para contraste */
+            background-color: #1a1a1a; /* Fondo oscuro por defecto */
+        }
+        .bg-main {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        /* Clase para la imagen de fondo de la página de inicio */
+        .bg-inicio {
+            background-image: url('{{ url_for("static", filename="img/fondo_inicio.jpg") }}'); /* Coloca aquí la ruta a tu imagen de fondo */
+        }
+        /* Clase para la imagen de fondo de la página de cartas */
+        .bg-cartas {
+            background-image: url('{{ url_for("static", filename="img/fondo_cartas.jpg") }}'); /* Coloca aquí la ruta a tu imagen de fondo */
+        }
+        /* Clase para la imagen de fondo de la página de historia */
+        .bg-historia {
+            background-image: url('{{ url_for("static", filename="img/fondo_historia.jpg") }}'); /* Coloca aquí la ruta a tu imagen de fondo */
+        }
+        /* Clase para la imagen de fondo del formulario/suscripción */
+        .bg-formulario {
+            background-image: url('{{ url_for("static", filename="img/fondo_formulario.jpg") }}'); /* Coloca aquí la ruta a tu imagen de fondo */
+        }
+         /* Clase para la imagen de fondo de la confirmación de suscripción */
+        .bg-confirmacion {
+            background-image: url('{{ url_for("static", filename="img/fondo_confirmacion.jpg") }}'); /* Coloca aquí la ruta a tu imagen de fondo */
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <div id="content" class="flex-grow">
+        </div>
+
+    <script>
+        // Aquí puedes agregar lógica JS si es necesario para SPA o interacciones
+    </script>
+</body>
+</html>

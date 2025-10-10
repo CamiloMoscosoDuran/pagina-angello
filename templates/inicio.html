@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio - Restaurante Angello{% endblock %}
+
+{% block content %}
+<div class="flex-grow bg-main bg-inicio min-h-screen flex flex-col">
+    {% include 'navbar.html' %}
+
+    <div class="flex-grow flex flex-col items-center justify-center p-8">
+        <div class="bg-black bg-opacity-60 p-8 rounded-lg text-center max-w-2xl">
+            <div class="relative w-40 h-40 mx-auto mb-6">
+                <img src="{{ url_for('static', filename='img/logo_circular.png') }}" alt="Logo Angello Circular" class="w-full h-full object-cover rounded-full border-4 border-orange-500">
+            </div>
+            <h2 class="text-3xl md:text-4xl font-light mb-4 text-white">Nuestros horarios de atención</h2>
+            <p class="text-xl md:text-2xl mb-2 text-white">Martes a Domingo</p>
+            <p class="text-xl md:text-2xl text-white">2pm hasta las 11pm</p>
+        </div>
+    </div>
+
+    {% include 'footer.html' %}
+</div>
+{% endblock %}
