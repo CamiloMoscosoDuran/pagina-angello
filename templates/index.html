@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Mi sitio{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tailwind compilado -->
+  <link href="{{ url_for('static', filename='css/output.css') }}" rel="stylesheet">
+  {% block extra_css %}{% endblock %}
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <nav class="bg-blue-600 text-white p-4">
+    <ul class="flex gap-6">
+      <li><a href="{{ url_for('inicio') }}">Inicio</a></li>
+      <li><a href="{{ url_for('carta') }}">Carta</a></li>
+      <li><a href="{{ url_for('historia') }}">Historia</a></li>
+      <li><a href="{{ url_for('delivery') }}">Delivery</a></li>
+      <li><a href="{{ url_for('reserva') }}">Reserva</a></li>
+      <li><a href="{{ url_for('agradecimiento') }}">Agradecimiento</a></li>
+    </ul>
+  </nav>
+
+  <main class="p-8">
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

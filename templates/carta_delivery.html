@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}Carta Delivery{% endblock %}
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/carta_delivery.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="main-container">
+    <header class="header">
+        <div class="header-left">
+            <a href="{{ url_for('inicio') }}">
+                <img src="{{ url_for('static', filename='imagen/inicio/logo.webp') }}" alt="Logo Angello" class="logo-header">
+            </a>
+        </div>
+        <nav class="nav-menu">
+            <a href="{{ url_for('inicio') }}">Inicio</a>
+            <a href="{{ url_for('carta') }}">Nuestra Carta</a>
+            <a href="{{ url_for('historia') }}">Nuestra Historia</a>
+            <a href="{{ url_for('delivery') }}" class="active">Delivery</a> 
+        </nav>
+        <div class="header-right">
+            <a href="{{ url_for('reserva') }}" class="btn-reserva">Reservaciones</a>
+        </div>
+    </header>
+
+```
+<div class="delivery-icon-badge">
+    <a href="{{ url_for('carrito_pago') }}" class="btn-carrito-icon">
+        <img src="{{ url_for('static', filename='imagen/delivery/carrito.png') }}" alt="Delivery" class="moto-icon">
+        <span class="badge">2</span>
+    </a>
+</div>
+
+<div class="menu-grid">
+    <a href="{{ url_for('pollos') }}" class="menu-item">
+        <h2 class="item-title">Pollos</h2>
+        <div class="item-image-container">
+            <img src="{{ url_for('static', filename='imagen/carta/pollo.png') }}" alt="Pollos" class="item-image">
+        </div>
+    </a>
+
+    <a href="{{ url_for('pizza') }}" class="menu-item">
+        <h2 class="item-title">Pizza</h2>
+        <div class="item-image-container">
+            <img src="{{ url_for('static', filename='imagen/carta/pizza.png') }}" alt="Pizza" class="item-image">
+        </div>
+    </a>
+    
+    <a href="{{ url_for('pastas') }}" class="menu-item">
+        <h2 class="item-title">Pastas</h2>
+        <div class="item-image-container">
+            <img src="{{ url_for('static', filename='imagen/carta/pasta.png') }}" alt="Pastas" class="item-image">
+        </div>
+    </a>
+    
+    <a href="{{ url_for('bebidas') }}" class="menu-item">
+        <h2 class="item-title">Bebidas</h2>
+        <div class="item-image-container">
+            <img src="{{ url_for('static', filename='imagen/carta/bebida.png') }}" alt="Bebidas" class="item-image">
+        </div>
+    </a>
+</div>
+
+<div class="footer-actions">
+    <!-- Botón que lleva al carrito_pago -->
+    <a href="{{ url_for('carrito_pago') }}" class="btn-carrito">
+        Ir al Carrito
+    </a>
+</div>
+
+<div class="social-info">
+    <div class="social-text-container">
+        <p class="social-text">Informes y pedidos</p>
+    </div>
+    <div class="social-icons-container">
+        <a href="#"><img src="{{ url_for('static', filename='icon/redes/whatsaap.png') }}" alt="WhatsApp"></a>
+        <a href="#"><img src="{{ url_for('static', filename='icon/redes/facebook.png') }}" alt="Facebook"></a>
+    </div>
+</div>
+```
+
+</div>
+{% endblock %}

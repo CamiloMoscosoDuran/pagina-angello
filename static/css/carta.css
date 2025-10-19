@@ -1,0 +1,222 @@
+:root {
+  --primary-color: #A34A3E;
+  --text-color-light: #F2EFE8;
+  --overlay-color: rgba(0, 0, 0, 0.71);
+  --header-bg-color: rgba(0, 0, 0, 0.4);
+  --hours-bg-color: rgba(55, 49, 49, 0.8);
+  --accent-color: #DDB45C;
+  --font-italian: 'Italiana', serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
+  height: 100%;
+}
+
+.main-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: url('../imagen/inicio/fondo1.png') no-repeat center center;
+  background-size: cover;
+  color: var(--text-color-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+}
+
+.main-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--overlay-color);
+  z-index: 1;
+}
+
+/* --- ESTILOS DEL HEADER --- */
+.header {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 134px;
+  padding: 20px 50px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--header-bg-color);
+}
+
+.header-left .logo-header {
+  width: 50px;
+  height: auto;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  gap: 230px;
+}
+
+.nav-menu a {
+  color: var(--text-color-light);
+  text-decoration: none;
+  font-size: 2.5rem;
+  font-family: var(--font-italian);
+  font-weight: 300;
+  transition: color 0.3s, border-bottom 0.3s;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  color: var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
+}
+
+.nav-menu a:first-child {
+  border-bottom: 2px solid var(--text-color-light);
+}
+
+.header-right .btn-reserva {
+  color: var(--accent-color);
+  text-decoration: none;
+  border: 2px solid var(--accent-color);
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: 300;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+  font-size: 2rem;
+  font-family: var(--font-italian);
+}
+
+.header-right .btn-reserva:hover {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: black;
+}
+
+/* --- SECCIÓN SOCIAL --- */
+.social-info {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 20;
+  background-color: transparent;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.social-text-container {
+  border: 2px solid var(--accent-color);
+  border-radius: 5px;
+  padding: 10px 20px;
+  background-color: var(--hours-bg-color);
+}
+
+.social-text {
+  font-weight: 300;
+  font-size: 1rem;
+  margin: 0;
+  font-family: 'Times New Roman', serif;
+  color: var(--accent-color);
+}
+
+.social-icons-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.social-icons-container a img {
+  width: 30px;
+  height: 30px;
+}
+
+/* --- ESTILOS DE LA CARTA --- */
+.carta-container {
+  position: relative;
+  z-index: 5;
+  background-color: transparent;
+  width: 90%;
+  max-width: 1000px;
+  margin-top: 150px;
+  margin-bottom: 50px;
+}
+
+.carta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.menu-item {
+  background-color: rgba(56, 49, 47, 0.8);
+  border: 2px solid var(--accent-color);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.menu-text {
+  width: 50%;
+  text-align: left;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.menu-title {
+  font-family: var(--font-italian);
+  font-size: 2.8rem;
+  color: var(--text-color-light);
+  margin: 0;
+}
+
+.menu-image {
+  width: 50%;
+  height: auto;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.menu-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- MEDIA QUERIES --- */
+@media (max-width: 768px) {
+  .carta-grid {
+    grid-template-columns: 1fr;
+  }
+  .menu-item {
+    flex-direction: column;
+  }
+  .menu-text {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-right: 0;
+  }
+}

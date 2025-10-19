@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}Delivery{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/delivery.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="main-container">
+    <header class="header">
+        <div class="header-left">
+            <a href="{{ url_for('inicio') }}">
+                <img src="{{ url_for('static', filename='imagen/inicio/logo.webp') }}" alt="Logo Angello" class="logo-header">
+            </a>
+        </div>
+        <nav class="nav-menu">
+            <a href="{{ url_for('inicio') }}">Inicio</a>
+            <a href="{{ url_for('carta') }}">Nuestra Carta</a>
+            <a href="{{ url_for('historia') }}">Nuestra Historia</a>
+            <a href="{{ url_for('delivery') }}" class="active">Delivery</a>
+        </nav>
+        <div class="header-right">
+            <a href="{{ url_for('reserva') }}" class="btn-reserva">Reservaciones</a>
+        </div>
+    </header>
+
+    <div class="delivery-form-container">
+        <form class="delivery-form" action="{{ url_for('delivery') }}" method="post">
+            <div class="form-grid">
+                <div class="form-field">
+                    <div class="input-group">
+                        <img src="{{ url_for('static', filename='icon/reserva/usuario.png') }}" alt="Ícono de nombres" class="input-icon">
+                        <input type="text" id="nombres" name="nombres" placeholder="Nombres" required>
+                    </div>
+                </div>
+                <div class="form-field">
+                    <div class="input-group">
+                        <img src="{{ url_for('static', filename='icon/reserva/usuario.png') }}" alt="Ícono de apellidos" class="input-icon">
+                        <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" required>
+                    </div>
+                </div>
+                <div class="form-field">
+                    <div class="input-group">
+                        <img src="{{ url_for('static', filename='icon/reserva/ubicacion.png') }}" alt="Ícono de dirección" class="input-icon">
+                        <input type="text" id="direccion" name="direccion" placeholder="Dirección" required>
+                    </div>
+                </div>
+                <div class="form-field">
+                    <div class="input-group">
+                        <img src="{{ url_for('static', filename='icon/reserva/celular.png') }}" alt="Ícono de celular" class="input-icon">
+                        <input type="tel" id="celular" name="celular" placeholder="Celular" required>
+                    </div>
+                </div>
+                <div class="form-field">
+                    <div class="input-group">
+                        <img src="{{ url_for('static', filename='icon/reserva/correo.png') }}" alt="Ícono de email" class="input-icon">
+                        <input type="email" id="email" name="email" placeholder="Email" required>
+                    </div>
+                </div>
+                <div class="form-field">
+                    <div class="input-group">
+                        <img src="{{ url_for('static', filename='icon/reserva/referencia.png') }}" alt="Ícono de referencia" class="input-icon">
+                        <input type="text" id="referencia" name="referencia" placeholder="Referencia">
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <button type="submit" class="btn-submit">Siguiente</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="social-info">
+        <div class="social-text-container">
+            <p class="social-text">Informes y pedidos</p>
+        </div>
+        <div class="social-icons-container">
+            <a href="#"><img src="{{ url_for('static', filename='icon/redes/whatsaap.png') }}" alt="WhatsApp"></a>
+            <a href="#"><img src="{{ url_for('static', filename='icon/redes/facebook.png') }}" alt="Facebook"></a>
+        </div>
+    </div>
+</div>
+{% endblock %}

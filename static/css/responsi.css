@@ -1,0 +1,119 @@
+/* === RESET BÁSICO === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* === ESTILOS GENERALES === */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #111827; /* gris oscuro */
+  color: #f3f4f6;            /* gris claro */
+  line-height: 1.6;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px; /* limita el ancho en pantallas grandes */
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* === NAVBAR === */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1f2937;
+  padding: 15px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: #f3f4f6;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s ease-in-out;
+}
+
+nav ul li a:hover {
+  color: #f59e0b; /* amarillo */
+}
+
+/* Botón reservas destacado */
+.btn-reserva {
+  background: #f59e0b;
+  padding: 8px 14px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+}
+
+/* === IMÁGENES RESPONSIVAS === */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* === FOOTER === */
+footer {
+  background: #1f2937;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+/* === MEDIA QUERIES === */
+
+/* Móviles (pantallas hasta 640px) */
+@media (max-width: 640px) {
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul li a {
+    font-size: 0.9rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Tablets (641px a 1024px) */
+@media (min-width: 641px) and (max-width: 1024px) {
+  nav ul li a {
+    font-size: 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+/* PC escritorio (más de 1024px) */
+@media (min-width: 1025px) {
+  nav ul li a {
+    font-size: 1.2rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <title>{% block title %}Angello Trattoria & Pizzeria{% endblock %}</title>
+
+   <!-- Viewport responsivo -->
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <!-- Tailwind -->
+   <script src="https://cdn.tailwindcss.com"></script>
+    
+   <!-- Font Awesome -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
+         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+   <!-- ✅ Agregado: tu CSS responsivo -->
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+
+   {% block extra_css %}{% endblock %}
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen">
+
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+
+    <!-- El pie de página se incluye al final del body -->
+    {% include 'pier_pagina.html' %}
+
+</body>
+</html>
