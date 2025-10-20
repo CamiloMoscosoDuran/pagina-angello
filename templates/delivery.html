@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}Delivery - Restaurante Angello{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/delivery.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="flex-grow bg-main bg-delivery min-h-screen flex flex-col">
+
+    <!-- NAVBAR -->
+    <nav class="flex justify-between items-center p-4 bg-black bg-opacity-50 text-white shadow-lg sticky top-0 z-50">
+        <div class="flex items-center space-x-4">
+            <a href="{{ url_for('inicio') }}" class="flex items-center space-x-2 text-lg font-bold">
+                <img src="{{ url_for('static', filename='img/inicio/logo.png') }}" alt="Logo Angello" class="h-10 w-10 rounded-full border-2 border-orange-500">
+                <span>Angello</span>
+            </a>
+            <a href="{{ url_for('inicio') }}" class="px-3 py-2 hover:text-orange-500 transition-colors">Inicio</a>
+            <a href="{{ url_for('cartas') }}" class="px-3 py-2 hover:text-orange-500 transition-colors">Nuestra Carta</a>
+            <a href="{{ url_for('historia') }}" class="px-3 py-2 hover:text-orange-500 transition-colors">Nuestra Historia</a>
+
+            <!-- Delivery: si está logueado va a delivery, si no, a registro -->
+            {% if loggedin %}
+                <a href="{{ url_for('formulario') }}" class="px-3 py-2 hover:text-orange-500 transition-colors">Delivery</a>
+            {% else %}
+                <a href="{{ url_for('inicio_secion') }}" class="px-3 py-2 hover:text-orange-500 transition-colors">Delivery</a>
+            {% endif %}
+        </div>
+        <div class="flex items-center space-x-4">
+            {% if loggedin %}
+                <span class="text-orange-400 font-semibold">👋 Hola, {{ nombre }}</span>
+                <a href="{{ url_for('logout') }}" class="px-4 py-2 bg-orange-700 text-white rounded-lg hover:bg-orange-600 transition-colors">Cerrar sesión</a>
+            {% else %}
+                <a href="{{ url_for('registro') }}" class="px-4 py-2 bg-orange-700 text-white rounded-lg hover:bg-orange-600 transition-colors">Suscríbete</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <!-- DELIVERY CARDS -->
+    <div class="flex-grow flex flex-col items-center justify-center p-8">
+        <div class="max-w-6xl w-full space-y-8">
+
+            <div class="cta-bar w-full bg-black bg-opacity-70 text-white rounded-md p-3 flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <span class="icon bg-white bg-opacity-10 rounded-md p-2">🚚</span>
+                    <span class="text-lg font-semibold tracking-wide">Haz tu pedido Delivery</span>
+                </div>
+            </div>
+
+            <!-- Row 1 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <article class="card flex bg-card bg-opacity-90 rounded-lg overflow-hidden shadow-lg">
+                    <div class="card-img w-full md:w-1/2">
+                        <img src="{{ url_for('static', filename='img/delivery/comida1.jpg') }}" alt="Comida 1" class="w-full h-56 md:h-full object-cover">
+                    </div>
+                    <div class="card-body w-full md:w-1/2 flex items-center justify-center p-8 bg-card-right">
+                        <h3 class="text-4xl md:text-5xl font-cinzel text-white">Pedido Express</h3>
+                    </div>
+                </article>
+
+                <article class="card flex bg-card bg-opacity-90 rounded-lg overflow-hidden shadow-lg">
+                    <div class="card-img w-full md:w-1/2">
+                        <img src="{{ url_for('static', filename='img/delivery/comida2.jpg') }}" alt="Comida 2" class="w-full h-56 md:h-full object-cover">
+                    </div>
+                    <div class="card-body w-full md:w-1/2 flex items-center justify-center p-8 bg-card-right">
+                        <h3 class="text-4xl md:text-5xl font-cinzel text-white">Combo Familiar</h3>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Formulario Delivery (solo visible si está logueado) -->
+            {% if loggedin %}
+                <div class="delivery-form-container w-full md:w-2/3 mt-8">
+                    <form class="delivery-form" action="{{ url_for('inicio_sesion.) }}" method="post">
+                        <div class="form-grid grid gap-4">
+                            <input type="text" name="nombre" placeholder="Nombre completo" required class="input-field">
+                            <input type="tel" name="telefono" placeholder="Teléfono" required class="input-field">
+                            <input type="text" name="direccion" placeholder="Dirección" required class="input-field">
+                            <textarea name="pedido" placeholder="Detalle de tu pedido" required class="input-field"></textarea>
+                        </div>
+                        <div class="button-container mt-4">
+                            <button type="submit" class="btn-submit bg-orange-700 text-white px-6 py-2 rounded-lg hover:bg-orange-600 transition-colors">Enviar Pedido</button>
+                        </div>
+                    </form>
+                </div>
+            {% else %}
+                <p class="mt-8 text-center text-white text-lg">Para realizar un pedido, <a href="{{ url_for('inicio_secion') }}" class="underline text-orange-500">inicia sesión o regístrate</a>.</p>
+            {% endif %}
+        </div>
+    </div>
+
+</div>
+{% endblock %}

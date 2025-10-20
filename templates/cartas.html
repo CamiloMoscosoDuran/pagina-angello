@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block title %}Nuestra Carta - Restaurante Angello{% endblock %}
+{% block extra_head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/cartas.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="flex-grow bg-main bg-cartas min-h-screen flex flex-col">
+
+    <!-- NAVBAR -->
+    <nav class="flex justify-between items-center p-4 bg-black bg-opacity-50 text-white shadow-lg sticky top-0 z-50">
+        <div class="flex items-center space-x-4">
+            <a href="{{ url_for('inicio') }}" class="flex items-center space-x-2 text-lg font-bold">
+                <img src="{{ url_for('static', filename='img/carta/logo.png') }}" alt="Logo Angello" class="h-10 w-10 rounded-full border-2 border-orange-500">
+                <span>Angello</span>
+            </a>
+            <a href="{{ url_for('inicio') }}" class="px-3 py-2 hover:text-orange-500">Inicio</a>
+            <a href="{{ url_for('cartas') }}" class="px-3 py-2 hover:text-orange-500">Nuestra Carta</a>
+            <a href="{{ url_for('historia') }}" class="px-3 py-2 hover:text-orange-500">Nuestra Historia</a>
+            <a href="{{ url_for('promociones') }}" class="px-3 py-2 hover:text-orange-500">Promociones</a>
+            <a href="{{ url_for('reserva') }}" class="px-3 py-2 hover:text-orange-500">Reservaciones</a>
+            <a href="{{ url_for('formulario') }}" class="px-3 py-2 hover:text-orange-500">Delivery</a>
+        </div>
+
+        <div class="flex items-center space-x-4">
+            {% if loggedin %}
+                <span class="text-orange-400 font-semibold">👋 Hola, {{ nombre }}</span>
+                <a href="{{ url_for('logout') }}" class="px-4 py-2 bg-orange-700 text-white rounded-lg hover:bg-orange-600">Cerrar sesión</a>
+            {% else %}
+                <a href="{{ url_for('inicio_secion') }}" class="px-4 py-2 bg-orange-700 text-white rounded-lg hover:bg-orange-600">Iniciar Sesión</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    {% if loggedin %}
+        <!-- Usuarios logueados: links activos -->
+        <div class="flex-grow flex flex-col items-center justify-center p-8">
+            <div class="max-w-6xl w-full space-y-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <a href="{{ url_for('carta_pollo') }}" class="card">
+                        <img src="{{ url_for('static', filename='img/carta/pollo.png') }}" class="w-full h-56 object-cover">
+                        <h3 class="text-3xl text-center text-white py-4 bg-orange-700">Pollos</h3>
+                    </a>
+                    <a href="{{ url_for('carta_pizza') }}" class="card">
+                        <img src="{{ url_for('static', filename='img/carta/pizza.png') }}" class="w-full h-56 object-cover">
+                        <h3 class="text-3xl text-center text-white py-4 bg-orange-700">Pizzas</h3>
+                    </a>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <a href="{{ url_for('carta_pasta') }}" class="card">
+                        <img src="{{ url_for('static', filename='img/carta/pasta.png') }}" class="w-full h-56 object-cover">
+                        <h3 class="text-3xl text-center text-white py-4 bg-orange-700">Pastas</h3>
+                    </a>
+                    <a href="{{ url_for('carta_bebidas') }}" class="card">
+                        <img src="{{ url_for('static', filename='img/carta/bebida.png') }}" class="w-full h-56 object-cover">
+                        <h3 class="text-3xl text-center text-white py-4 bg-orange-700">Bebidas</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <!-- Usuarios no logueados: solo visual + botón Suscríbete -->
+        <div class="flex flex-col items-center justify-center p-8 space-y-6">
+            <a href="{{ url_for('formulario') }}" class="px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-400 transition-colors font-bold">
+                Suscríbete
+            </a>
+
+            <div class="max-w-6xl w-full space-y-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="card-guest">
+                        <img src="{{ url_for('static', filename='img/carta/pollo.png') }}" class="w-full h-56 object-cover">
+                        <h3 class="text-3xl text-center text-white py-4 bg-orange-700">Pollos</h3>
+                    </div>
+                    <div class="card-guest">
+                        <img src="{{ url_for('static', filename='img/carta/pizza.png') }}" class="w-full h-56 object-cover">
+                        <h3 class="text-3xl text-center text-white py-4 bg-orange-700">Pizzas</h3>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="card-guest">
+                        <img src="{{ url_for('static', filename='img/carta/pasta.png') }}" class="w-full h-56 object-cover">
+                        <h3 class="text-3xl text-center text-white py-4 bg-orange-700">Pastas</h3>
+                    </div>
+                    <div class="card-guest">
+                        <img src="{{ url_for('static', filename='img/carta/bebida.png') }}" class="w-full h-56 object-cover">
+                        <h3 class="text-3xl text-center text-white py-4 bg-orange-700">Bebidas</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+</div>
+{% endblock %}
