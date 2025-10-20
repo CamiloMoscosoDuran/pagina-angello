@@ -1,0 +1,154 @@
+/* ------------------------------------------- */
+/* Estilos Generales y Fondo */
+/* ------------------------------------------- */
+.login-background {
+    /* Utiliza un color o una imagen de fondo de alta calidad */
+    background-color: #1e1e1e; /* Color oscuro como fallback */
+    background-image: url('../img/inicio/inicio.jpg'); /* Intenta cargar la imagen de fondo del restaurante */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* ------------------------------------------- */
+/* Tarjeta del Formulario (Contenedor) */
+/* ------------------------------------------- */
+.form-card {
+    background-color: rgba(255, 255, 255, 0.95); /* Blanco semitransparente */
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 450px;
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ------------------------------------------- */
+/* Títulos y Texto */
+/* ------------------------------------------- */
+.text-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #4a4a4a;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.form-card p {
+    color: #6c6c6c;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* ------------------------------------------- */
+/* Campos del Formulario */
+/* ------------------------------------------- */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #ff6600; /* Naranja Angello */
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.2);
+}
+
+/* ------------------------------------------- */
+/* Botón de Enviar */
+/* ------------------------------------------- */
+.form-actions {
+    margin-top: 30px;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #ff6600; /* Naranja Principal */
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    text-transform: uppercase;
+}
+
+.btn-submit:hover {
+    background-color: #e65c00;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ------------------------------------------- */
+/* Enlace de Registro */
+/* ------------------------------------------- */
+.register-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+.register-link a {
+    color: #ff6600; /* Naranja Principal */
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.register-link a:hover {
+    color: #e65c00;
+    text-decoration: underline;
+}
+
+/* ------------------------------------------- */
+/* Mensajes Flash (Errores) */
+/* ------------------------------------------- */
+.message-box {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+.message-box.error {
+    background-color: #ffeaea; /* Fondo rojo claro */
+    border-left: 5px solid #ff4d4d; /* Barra roja */
+    color: #cc0000; /* Texto rojo oscuro */
+}
+
+.message-box.success {
+    background-color: #eaffea;
+    border-left: 5px solid #4dff4d;
+    color: #00cc00;
+}
