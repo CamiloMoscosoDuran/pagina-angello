@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}Reservaciones - Restaurante Angello{% endblock %}
+
+{% block extra_head %}
+<!-- Vinculamos el CSS personalizado -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/reserva.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="logo">
+    <a href="{{ url_for('inicio') }}">
+      <img src="{{ url_for('static', filename='img/carta/logo.png') }}" alt="Logo Angello">
+    </a>
+  </div>
+
+  <div class="links">
+    <a href="{{ url_for('inicio') }}">Inicio</a>
+    <a href="{{ url_for('cartas') }}">Carta</a>
+    <a href="{{ url_for('historia') }}">Nuestra Historia</a>
+    <a href="{{ url_for('promociones') }}">Promociones</a>
+    <a href="{{ url_for('reserva') }}" style="color:#ff8c42; font-weight:bold;">Reservaciones</a>
+    <a href="{{ url_for('delivery') }}">Delivery</a>
+  </div>
+</div>
+
+<!-- CONTENIDO PRINCIPAL -->
+<div class="container">
+  <div class="form-box">
+    <h1>Reserva tu Mesa</h1>
+    <p>Disfruta de una experiencia gastronómica inolvidable en <strong>Angello</strong>.  
+    Completa el formulario y asegura tu lugar con nosotros.</p>
+
+    <form method="POST" action="{{ url_for('reserva') }}">
+      <label for="nombre">Nombre completo</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+
+      <label for="telefono">Celular</label>
+      <input type="tel" id="telefono" name="telefono" placeholder="Ejemplo: 987654321" required>
+
+      <label for="fecha">Fecha de la reserva</label>
+      <input type="date" id="fecha" name="fecha" required>
+
+      <label for="hora">Hora</label>
+      <input type="time" id="hora" name="hora" required>
+
+      <label for="personas">Cantidad de personas</label>
+      <input type="number" id="personas" name="personas" min="1" max="20" required>
+
+      <label for="mensaje">Mensaje o indicaciones especiales</label>
+      <textarea id="mensaje" name="mensaje" rows="3" placeholder="Ejemplo: Mesa cerca de la ventana"></textarea>
+
+      <button type="submit">Confirmar Reserva</button>
+    </form>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  © 2025 Restaurante Angello —  
+  <a href="#">Facebook</a> | 
+  <a href="#">Instagram</a> | 
+  <a href="#">WhatsApp</a>
+</footer>
+
+{% endblock %}

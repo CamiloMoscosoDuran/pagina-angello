@@ -1,0 +1,152 @@
+/* static/css/inicio.css - estilos para la página de inicio */
+
+:root {
+	--red-bg: #7a1f1a;
+	/* tono rojizo similar */
+	--cream: #C63D2B;
+	--accent: #c43b2f;
+}
+
+.bg-inicio {
+	background-image: url('../img/inicio/fondo.png');
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	position: relative;
+}
+
+.inicio-hero {
+	background-color: var(--red-bg);
+	background-size: cover;
+	background-position: center;
+}
+
+.hero-content {
+	max-width: 1200px;
+}
+
+.plate-frame {
+	width: 420px;
+	height: 320px;
+	background: #fff6ea;
+	padding: 18px;
+	box-shadow: 0 12px 0 rgba(0, 0, 0, 0.06);
+	border-left: 18px solid #efeadb;
+	border-top: 18px solid #efeadb;
+}
+
+.plate-frame img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.hero-card .card-inner {
+	background: var(--cream);
+}
+
+.hero-title {
+	font-family: 'Cinzel', serif;
+	color: #ffffff;
+}
+
+.hero-sub {
+	color: #ffffff;
+	font-weight: 500;
+}
+
+.btn-reserve {
+	background: transparent;
+	border: 2px solid rgba(122, 31, 26, 0.3);
+	padding: 0.6rem 1rem;
+	color: #7a1f1a;
+	border-radius: 6px;
+	text-decoration: none;
+}
+
+.actions img {
+	filter: drop-shadow(0 2px 0 rgba(0, 0, 0, 0.15));
+}
+
+/* decoraciones simples con pseudo elementos */
+.inicio-hero::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	height: 260px;
+	background: rgba(0, 0, 0, 0.06);
+	pointer-events: none;
+}
+
+@media (max-width: 768px) {
+	.plate-frame {
+		width: 320px;
+		height: 240px;
+	}
+
+	.hero-content {
+		padding: 2rem;
+	}
+
+	.hero-title {
+		font-size: 1.6rem;
+	}
+}
+/* ====================================================================== */
+/* CSS REQUERIDO PARA EL EFECTO DE BOTÓN 'smky-btn3' (ANARANJADO) */
+/* Agrega este bloque completo a tu archivo static/css/inicio.css */
+/* ====================================================================== */
+
+/* El botón ya tiene algunas propiedades gracias a Tailwind, pero necesita estas */
+.smky-btn3 {
+    /* Necesario para posicionar el pseudo-elemento 'after' */
+    position: relative;
+    /* Necesario para que el pseudo-elemento 'after' que sube se corte */
+    overflow: hidden; 
+    /* Necesario para que el texto sea visible */
+    z-index: 20;
+    /* Ajustes visuales (opcional si Tailwind ya lo maneja) */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+/* El pseudo-elemento que crea el efecto de llenado */
+.smky-btn3::after {
+    content: '';
+    /* Propiedades de posicionamiento y tamaño */
+    position: absolute;
+    width: 100%;
+    /* Altura inicial muy pequeña, definida como h-1 en Tailwind */
+    height: 4px; 
+    bottom: 0;
+    left: 0;
+    /* Fondo anaranjado, definido como after:bg-[#ff9933] en Tailwind */
+    background-color: #ff9933; 
+    /* Forma de la parte superior, definida como after:rounded-t-full en Tailwind */
+    border-top-left-radius: 9999px;
+    border-top-right-radius: 9999px;
+    /* Propiedad de transición ya definida en Tailwind */
+    transition: all 0.5s; 
+    /* Colocado por debajo del texto */
+    z-index: -20;
+}
+
+/* El efecto cuando se hace hover */
+.smky-btn3:hover::after {
+    /* Altura que hace que el elemento 'suba', definida como after:hover:h-[200%] en Tailwind */
+    height: 200%;
+    /* Asegura que la transición se active al salir del hover */
+    transition: all 0.5s;
+}
+
+/* ====================================================================== */
+/* FIN DEL CSS REQUERIDO */
+/* ====================================================================== */

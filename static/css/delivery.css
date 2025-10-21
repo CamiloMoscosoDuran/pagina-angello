@@ -1,0 +1,32 @@
+/* Fondo estilo carta */
+.delivery-fondo {
+    background-image: url("../img/carta/fondo.png"); /* ajusta la ruta según tu carpeta */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* efecto de desplazamiento elegante */
+}
+
+/* Mejor legibilidad del texto */
+.bg-main {
+    color: white;
+}
+
+/* Animaciones sutiles */
+.delivery-fondo h1 {
+    animation: fadeInDown 1s ease-out;
+}
+.delivery-fondo p,
+.delivery-fondo .grid {
+    animation: fadeInUp 1.2s ease-in-out;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
