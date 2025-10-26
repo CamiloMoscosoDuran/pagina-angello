@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}Promociones Exclusivas - Restaurante Angello{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/inicio.css') }}">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+<div class="inicio-hero min-h-screen bg-main bg-inicio flex flex-col">
+    
+    <!-- 🔸 ENCABEZADO CON LOGO Y NAVEGACIÓN -->
+    <nav class="flex justify-between items-center p-4 bg-black bg-opacity-60 text-white shadow-lg sticky top-0 z-50">
+        <div class="flex items-center space-x-4">
+            <a href="{{ url_for('inicio') }}" class="flex items-center space-x-2 text-xl font-bold text-orange-400 hover:text-white transition-colors">
+                <img src="{{ url_for('static', filename='img/formulario/logo.png') }}" alt="Logo Angello" class="h-10 w-10 rounded-full border-2 border-orange-500">
+                <span>Angello</span>
+            </a>
+            
+           <a href="{{ url_for('inicio') }}" class="px-3 py-2 hover:text-orange-500">Inicio</a>
+            <a href="{{ url_for('cartas') }}" class="px-3 py-2 hover:text-orange-500">Nuestra Carta</a>
+            <a href="{{ url_for('historia') }}" class="px-3 py-2 hover:text-orange-500">Nuestra Historia</a>
+            <a href="{{ url_for('promociones') }}" class="px-3 py-2 hover:text-orange-500">Promociones</a>
+            <a href="{{ url_for('reservadf') }}" class="px-3 py-2 hover:text-orange-500">Reservaciones</a>
+            <a href="{{ url_for('delivery') }}" class="px-3 py-2 hover:text-orange-500">Delivery</a>
+            
+            <!-- Opción activa -->
+            <a href="{{ url_for('promociones') }}" class="px-3 py-2 bg-orange-600 text-white font-bold rounded-lg transition-colors border-2 border-orange-600">
+                🎁 Promociones
+            </a>
+
+         
+        
+        <!-- Estado de la Sesión -->
+        <div class="flex items-center space-x-4">
+            {% if loggedin %}
+                <span class="px-4 py-2 text-white font-semibold border border-orange-500 rounded-lg">Hola, {{ nombre }}!</span>
+                <a href="{{ url_for('logout') }}" class="px-4 py-2 bg-red-700 text-white rounded-lg hover:bg-red-600 transition-colors">Cerrar Sesión</a>
+            {% else %}
+                <a href="{{ url_for('login') }}" class="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors">Iniciar Sesión</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <!-- 🔸 CONTENIDO DE PROMOCIONES -->
+    <div class="container mx-auto p-10 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg">🎉 Promociones Exclusivas para Nuestros Clientes</h1>
+        <p class="text-lg text-gray-200 mb-12 max-w-3xl mx-auto">Aprovecha nuestras ofertas especiales solo para miembros registrados. ¡Come delicioso y ahorra con Angello!</p>
+
+        <!-- Tarjetas de Promociones -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- PROMO 1 -->
+            <div class="bg-white p-6 rounded-2xl shadow-2xl hover:shadow-orange-500/50 transition-all border-t-8 border-red-500">
+                <img src="https://placehold.co/600x400/FF5733/FFFFFF?text=Pollo+2x1" alt="Pollo a la Leña" class="rounded-xl mb-4 w-full h-48 object-cover">
+                <h2 class="text-2xl font-bold text-red-600 mb-2">🔥 ¡2x1 en Pollo a la Leña!</h2>
+                <p class="text-gray-600 mb-4">Válido todos los martes para pedidos a domicilio. Usa el código: <b>ANGELLO2X1</b></p>
+                <a href="{{ url_for('delivery') }}" class="inline-block bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 font-semibold transition-colors">¡Pedir Ahora!</a>
+            </div>
+
+            <!-- PROMO 2 -->
+            <div class="bg-white p-6 rounded-2xl shadow-2xl hover:shadow-blue-500/50 transition-all border-t-8 border-blue-500">
+                <img src="https://placehold.co/600x400/3366FF/FFFFFF?text=Bebida+Gratis" alt="Bebida Gratis" class="rounded-xl mb-4 w-full h-48 object-cover">
+                <h2 class="text-2xl font-bold text-blue-600 mb-2">🍹 Bebida Gratis al Reservar</h2>
+                <p class="text-gray-600 mb-4">Reserva tu mesa online este fin de semana y disfruta de tu primera bebida gratis.</p>
+                <a href="{{ url_for('reservadf') }}" class="inline-block bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 font-semibold transition-colors">¡Reservar Mesa!</a>
+            </div>
+
+            <!-- PROMO 3 -->
+            <div class="bg-white p-6 rounded-2xl shadow-2xl hover:shadow-green-500/50 transition-all border-t-8 border-green-500">
+                <img src="https://placehold.co/600x400/33FF57/FFFFFF?text=Puntos+Dobles" alt="Puntos Dobles" class="rounded-xl mb-4 w-full h-48 object-cover">
+                <h2 class="text-2xl font-bold text-green-600 mb-2">💎 Puntos Dobles el Jueves</h2>
+                <p class="text-gray-600 mb-4">Acumula el doble de puntos en cualquier pedido realizado los jueves.</p>
+                <a href="{{ url_for('cartas') }}" class="inline-block bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 font-semibold transition-colors">Ver Carta</a>
+            </div>
+        </div>
+
+        <p class="text-center text-gray-300 mt-12">✨ Todas las promociones son exclusivas para usuarios registrados en Angello.</p>
+    </div>
+</div>
+{% endblock %}
